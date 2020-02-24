@@ -1,5 +1,7 @@
 <?php
 
+		require 'vendor/autoload.php';
+
 		function testInput($data) {
 			$data = trim($data);
 			$data = stripslashes($data);

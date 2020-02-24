@@ -38,14 +38,13 @@
 				document.getElementById("bodyy").style.width = (W - (W*0.0483162518)) + "px";
 				$.ajax({
     				url : 'getdropdown.php',
-					dataType: 'json',
+						dataType: 'json',
     				success : function(result) {
-						console.log(result);
 						document.getElementById("clublist_Name1").innerHTML = result;
 						document.getElementById("clublist_Name2").innerHTML = "<option value=''>None - If No 2nd Club</option>" + result;
     				},
     				error : function(request,error){
-						document.getElementById('clublist_Name1').innerHTML = "";
+							document.getElementById('clublist_Name1').innerHTML = "";
     					document.getElementById('clublist_Name2').innerHTML = "";
     					console.log("Request: "+ error + "\n" + request);
     				} ,
@@ -62,9 +61,6 @@
 				alert("Submission is currently being processed");
 			}
 			else{
-				/*club1 = document.getElementById("clublist_Name1").value;
-				club2 = document.getElementById("clublist_Name2").value;
-				batch = document.getElementById("Email").value;*/
 
 				loaded = true;
 				$.ajax({
@@ -76,8 +72,10 @@
 						loaded = false;
 					},
 					error : function(request,error){
-    					console.log("Request: "+ error + "\n" + request);
-    				}
+  					console.log("Request: "+ error + "\n" + request);
+    			}
+				}) ,
+					timeout: 5000
 				});
 			}
 		}
