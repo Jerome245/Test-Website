@@ -8,10 +8,10 @@
 
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
-	} 
+	}
 
 	$sql = "SELECT table_name FROM information_schema.tables WHERE table_schema ='id9106402_clubs' AND TABLE_COMMENT = 'Clubs' ORDER BY `table_name` ASC";
-	
+
 	$result = $conn->query($sql);
 	if ($result AND $result -> num_rows == 0){
 		echo "Error";
@@ -20,7 +20,7 @@
 	    while($row = mysqli_fetch_array ($result,MYSQLI_NUM)) {
 			$data[] = $row;
 		}
-			
+
 		echo json_encode($data);
 	}
 	else{
