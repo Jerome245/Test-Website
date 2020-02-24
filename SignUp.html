@@ -40,7 +40,6 @@
     				url : 'getdropdown.php',
 					dataType: 'json',
     				success : function(result) {
-						console.log(result);
 						document.getElementById("clublist_Name1").innerHTML = result;
 						document.getElementById("clublist_Name2").innerHTML = "<option value=''>None - If No 2nd Club</option>" + result;
     				},
@@ -69,7 +68,7 @@
 				loaded = true;
 				$.ajax({
 					type: 'POST',
-					url: 'sendData',
+					url: 'sendData.php',
 					data: { club1: document.getElementById("clublist_Name1").value, club2: document.getElementById("clublist_Name2").value, email: document.getElementById("Email").value },
 					success: function(message){
 						alert(message);
