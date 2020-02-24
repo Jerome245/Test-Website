@@ -3,7 +3,7 @@
 		error_reporting(E_ALL);
 		ini_set("display_errors", 1);
 		require 'vendor/autoload.php';
-		
+
 		function testInput($data) {
 			$data = trim($data);
 			$data = stripslashes($data);
