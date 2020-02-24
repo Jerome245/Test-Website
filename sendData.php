@@ -51,10 +51,24 @@
 			else if($result){
 				$sql = "INSERT INTO `applicantlist` (Passkey, Email, Club1, Club2, Status) VALUES ('$passkey', '$email','$club1','$club2','0')";
 				$result = $conn->query($sql);
-				echo $sql;
-				/*if ($conn->query($sql1) === TRUE) {
+				$sql;
+				if ($conn->query($sql1) === TRUE) {
 
-					$subject="Your confirmation link here";
+					$from = new SendGrid\Email(null, "test@example.com");
+					$subject = "Hello World from the SendGrid PHP Library!";
+					$to = new SendGrid\Email(null, $email);
+					$content = new SendGrid\Content("text/plain", "Hello, Email!");
+					$mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+					$apiKey = getenv('SENDGRID_API_KEY');
+					$sg = new \SendGrid($apiKey);
+
+					$response = $sg->client->mail()->send()->post($mail);
+					$response->statusCode();
+					$response->headers();
+					$response->body();
+
+					/*$subject="Your confirmation link here";
 
 					$header="from: PSHS-CLC Club management";
 
@@ -86,11 +100,11 @@
 						$sql1 = "DELETE FROM totaldb WHERE Passkey = '$passkey' ";
 						$conn->query($sql1);
 						echo "Cannot send Confirmation link to your e-mail address or e-mail address is Invalid";
-					}
+					}*/
 				}
 				else {
 					echo "Error: " . $sql . "<br>" . $conn->error;
-				}*/
+				}
 			}
 			else{
 				echo "Nothing Happened";
