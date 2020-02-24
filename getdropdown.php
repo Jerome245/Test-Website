@@ -4,10 +4,10 @@
 	$str_data = "";
 	$output = "";
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "pwdpwd";
-	$dbname = "test";
+	$servername = "us-cdbr-iron-east-04.cleardb.net";
+	$username = "be346908c3321d";
+	$password = "47897b06";
+	$dbname = "heroku_bc49f21d14a9948";
 
 	//error_log(implode(",",$input));
 
