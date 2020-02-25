@@ -21,7 +21,7 @@ function testInput($data) {
 	return $data;
 }
 
-$passkey=testInput($_GET['passkey']);
+$passkey=testInput($_REQUEST['passkey']);
 echo passkey;
 
 // Retrieve data from table where row that match this passkey
