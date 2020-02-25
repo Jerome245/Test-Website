@@ -62,15 +62,14 @@
 					$emailsent->setSubject("Please Verify your club application");
 					$emailsent->addTo($email, "Dear Student");
 
-					$message="Your Confirmation link: \r\n";
-					$message.="Click on this link to verify your submission \r\n";
+					$message="<p>Click on this link to verify your submission \r\n";
 					$message.="http://pshsclcclub.herokuapp.com//Confirmation.php?passkey=".$passkey;
 					$message.="\n\nYour Submission:";
 					$message.="\nFirst Choice: ". $club1;
 					if($club2 != ""){
 						$message.="\nSecond Choice: ". $club2;
 					}
-					$emailsent->addContent("text/html", $message);
+					$emailsent->addContent("text/html", $message."</p>");
 
 					$sendgrid = new \SendGrid('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');
 					try {
@@ -79,7 +78,7 @@
 					    echo 'Caught exception: '. $e->getMessage() ."\n";
 					}
 
-					echo "Your submission is currently being processed\n\nPlease Check your email for verfication";
+					echo "Your submission has been processed and recorded\n\nPlease Check your email for verfication";
 
 					/*$subject="Your confirmation link here";
 
