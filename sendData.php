@@ -62,9 +62,9 @@
 					$emailsent->setSubject("Please Verify your club application");
 					$emailsent->addTo($email, "Dear Student");
 
-					$message="<p><strong>Please click on this link to verify your submission <strong><br>";
+					$message="<p><Please click on this link to verify your submission <br>";
 					$message.="http://pshsclcclub.herokuapp.com//Confirmation.php?passkey=".$passkey;
-					$message.="<br><br><strong>This is Your Submission:<strong>";
+					$message.="<br><br>This is Your Submission:";
 					$message.="<br>First Choice: ". $club1 . "<br>";
 					if($club2 != ""){
 						$message.="Second Choice: ". $club2 . "<br>";
@@ -72,6 +72,7 @@
 					else{
 						$message.="Second Choice: None <br>";
 					}
+					$message .="<br> If you have time may you please assess my website through this survey<br>";
 					$emailsent->addContent("text/html", $message."</p>");
 
 					$sendgrid = new \SendGrid('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');
