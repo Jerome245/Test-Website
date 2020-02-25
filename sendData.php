@@ -57,10 +57,10 @@
 				$result = $conn->query($sql);
 				if ($result === TRUE) {
 
-					$email = new \SendGrid\Mail\Mail();
-					$email->setFrom("emailbotsender@gmail.com", "PSHS-CLC Management");
-					$email->setSubject("Please Verify your club application");
-					$email->addTo($email, "Dear Student");
+					$emailsent = new \SendGrid\Mail\Mail();
+					$emailsent->setFrom("emailbotsender@gmail.com", "PSHS-CLC Management");
+					$emailsent->setSubject("Please Verify your club application");
+					$emailsent->addTo($email, "Dear Student");
 
 					$message="Your Confirmation link: \r\n";
 					$message.="Click on this link to verify your submission \r\n";
@@ -70,11 +70,11 @@
 					if($club2 != ""){
 						$message.="\nSecond Choice: ". $club2;
 					}
-					$email->addContent("text/html", $message);
+					$emailsent->addContent("text/html", $message);
 
 					$sendgrid = new \SendGrid('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');
 					try {
-					    $response = $sendgrid->send($email);
+					    $response = $sendgrid->send($emailsent);
 					} catch (Exception $e) {
 					    echo 'Caught exception: '. $e->getMessage() ."\n";
 					}
