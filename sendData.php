@@ -55,8 +55,7 @@
 			else if($result){
 				$sql = "INSERT INTO `applicantlist` (Passkey, Email, Club1, Club2, Status) VALUES ('$passkey', '$email','$club1','$club2','0')";
 				$result = $conn->query($sql);
-				$sql;
-				if ($conn->query($sql) === TRUE) {
+				if ($result === TRUE) {
 
 					$from = new SendGrid\Email(null, "test@example.com");
 					$subject = "Hello World from the SendGrid PHP Library!";
@@ -71,6 +70,8 @@
 					$response->statusCode();
 					$response->headers();
 					$response->body();
+
+					echo "It Worked";
 
 					/*$subject="Your confirmation link here";
 
