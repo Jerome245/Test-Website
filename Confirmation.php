@@ -1,4 +1,5 @@
 <?php
+echo "Your submission has been verified";
 
 $servername = "us-cdbr-iron-east-04.cleardb.net";
 $username = "be346908c3321d";
@@ -22,36 +23,9 @@ function testInput($data) {
 }
 
 $passkey=testInput($_GET["passkey"]);
-echo $passkey;
 
-// Retrieve data from table where row that match this passkey
-$sql1 = "SELECT * FROM applicantlist WHERE Passkey = `$passkey`";
-$result1 = $conn->query($sql1);
-// If successfully queried
-if($result1 === TRUE){
+$sql = "UPDATE applicantlist SET Status='1' WHERE Passkey = '$passkey' ";
+$result = $conn->query($sql);
 
-	if($result1->num_rows == 1){
-		$sql = "UPDATE applicantlist SET Status='1' WHERE Passkey = '$passkey' ";
-		$result = $conn->query($sql);
-		if ($result){
-			echo "Your account has been activated";
-		}
-
-	}
-	else if ($result1->num_rows > 1) {
-		echo "Error: Link is Invalid";
-	}
-
-	// if not found passkey, display message "Wrong Confirmation code"
-	else {
-		echo "Error: Link is Invalid";
-	}
-
-	// if successfully moved data from table"temp_members_db" to table "registered_members" displays message "Your account has been activated" and don't forget to delete confirmation code from table "temp_members_db"
-
-}
-else {
-	echo "Error: Failed to connect";
-}
 $conn->close();
 ?>
