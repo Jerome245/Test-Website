@@ -1,5 +1,4 @@
 <?php
-$result1 = $result2 = $result3 = $result4 = "";
 
 $servername = "us-cdbr-iron-east-04.cleardb.net";
 $username = "be346908c3321d";
@@ -23,9 +22,10 @@ function testInput($data) {
 }
 
 $passkey=testInput($_GET['passkey']);
+echo passkey;
 
 // Retrieve data from table where row that match this passkey
-$sql1 = "SELECT * FROM applicantlist WHERE Passkey = `$passkey` ";
+$sql1 = "SELECT * FROM applicantlist WHERE Passkey = `$passkey`";
 $result1 = $conn->query($sql1);
 // If successfully queried
 if($result1){
