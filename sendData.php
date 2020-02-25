@@ -83,7 +83,7 @@
 					    echo 'Caught exception: '. $e->getMessage() ."\n";
 					}
 
-					echo "Your submission has been processed and recorded\n\nPlease Check your email for verfication";
+					echo "Your submission has been processed and recorded\n\nPlease Check your email for verfication\n\nIf you have time may you please assess my website through the assessment survey";
 
 					/*$subject="Your confirmation link here";
 
