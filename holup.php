@@ -17,6 +17,7 @@ $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
 );
 echo getenv('SENDGRID_API_KEY');
+echo ("\n\n\n\n\n");
 $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 try {
     $response = $sendgrid->send($email);
