@@ -15,8 +15,6 @@ $sg = new \SendGrid($apiKey);
 
 echo $apiKey;
 echo "\n\n\n";
-echo $sg;
-echo "\n\n\n";
 
 $response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
