@@ -50,7 +50,7 @@
 			$result = $conn->query($sql);
 
 			if($result->num_rows > 0){
-				echo "It appears the class number is already in use.";
+				echo "It appears that email is already in use.";
 			}
 			else if($result){
 				$sql = "INSERT INTO `applicantlist` (Passkey, Email, Club1, Club2, Status) VALUES ('$passkey', '$email','$club1','$club2','0')";
@@ -64,16 +64,13 @@
 
 					$message="Your Confirmation link: \r\n";
 					$message.="Click on this link to verify your submission \r\n";
-					$message.="http://pshsclcclub.herokuapp.com//Confirmation.php?passkey=$passkey";
+					$message.="http://pshsclcclub.herokuapp.com//Confirmation.php?passkey=".$passkey;
 					$message.="\n\nYour Submission:";
-					$message.="\nFirst Choice: $club1";
+					$message.="\nFirst Choice: ". $club1;
 					if($club2 != ""){
-						$message.="\nSecond Choice: $club2";
+						$message.="\nSecond Choice: ". $club2;
 					}
-
-					$email->addContent(
-					    "text/html", $message
-					);
+					$email->addContent("text/html", $message);
 
 					$sendgrid = new \SendGrid('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');
 					try {
