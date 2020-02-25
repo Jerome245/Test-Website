@@ -57,34 +57,36 @@
 				$result = $conn->query($sql);
 				if ($result === TRUE) {
 
-					$from = new SendGrid\Email(null, "test@example.com");
-					$subject = "Hello World from the SendGrid PHP Library!";
-					$to = new SendGrid\Email(null, $email);
-					$content = new SendGrid\Content("text/plain", "Hello, Email!");
-					$mail = new SendGrid\Mail($from, $subject, $to, $content);
-
-					$apiKey = getenv('SENDGRID_API_KEY');
-					$sg = new \SendGrid($apiKey);
-
-					$response = $sg->client->mail()->send()->post($mail);
-					$response->statusCode();
-					$response->headers();
-					$response->body();
-
-					echo "It Worked";
-
-					/*$subject="Your confirmation link here";
-
-					$header="from: PSHS-CLC Club management";
+					$email = new \SendGrid\Mail\Mail();
+					$email->setFrom("emailbotsender@gmail.com", "PSHS-CLC Management");
+					$email->setSubject("Please Verify your club application");
+					$email->addTo($email, "Dear Student");
 
 					$message="Your Confirmation link: \r\n";
 					$message.="Click on this link to verify your submission \r\n";
-					$message.="https://pshsclcclub.000webhostapp.com/Confirmation?passkey=$passkey";
-					$message.="\n\nYour Submission";
+					$message.="http://pshsclcclub.herokuapp.com//Confirmation.php?passkey=$passkey";
+					$message.="\n\nYour Submission:";
 					$message.="\nFirst Choice: $club1";
 					if($club2 != ""){
 						$message.="\nSecond Choice: $club2";
 					}
+
+					$email->addContent(
+					    "text/html", $message
+					);
+
+					$sendgrid = new \SendGrid('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');
+					try {
+					    $response = $sendgrid->send($email);
+					} catch (Exception $e) {
+					    echo 'Caught exception: '. $e->getMessage() ."\n";
+					}
+
+					echo "Your submission is currently being processed\n\nPlease Check your email for verfication";
+
+					/*$subject="Your confirmation link here";
+
+					$header="from: PSHS-CLC Club management";
 
 					$sentmail = mail($email,$subject,$message,$header);
 
