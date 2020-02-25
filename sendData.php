@@ -62,9 +62,9 @@
 					$emailsent->setSubject("Please Verify your club application");
 					$emailsent->addTo($email, "Dear Student");
 
-					$message="<p>Please click on this link to verify your submission <br>";
+					$message="<p><strong>Please click on this link to verify your submission <strong><br>";
 					$message.="http://pshsclcclub.herokuapp.com//Confirmation.php?passkey=".$passkey;
-					$message.="<br><br>This is Your Submission:";
+					$message.="<br><br><strong>This is Your Submission:<strong>";
 					$message.="<br>First Choice: ". $club1 . "<br>";
 					if($club2 != ""){
 						$message.="Second Choice: ". $club2 . "<br>";
