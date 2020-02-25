@@ -1,3 +1,2 @@
-
-hidden/accept.php
-hidden/Admin.html
+vendor/
+.env
