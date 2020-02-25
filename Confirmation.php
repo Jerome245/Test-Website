@@ -22,7 +22,7 @@ function testInput($data) {
 }
 
 $passkey=testInput($_GET["passkey"]);
-echo passkey;
+echo $passkey;
 
 // Retrieve data from table where row that match this passkey
 $sql1 = "SELECT * FROM applicantlist WHERE Passkey = `$passkey`";
