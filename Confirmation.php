@@ -1,10 +1,10 @@
 <?php
 $result1 = $result2 = $result3 = $result4 = "";
 
-$servername = "localhost";
-$username = "id9106402_root";
-$password = "pwdpwd";
-$dbname = "id9106402_clubs";
+$servername = "us-cdbr-iron-east-04.cleardb.net";
+$username = "be346908c3321d";
+$password = "47897b06";
+$dbname = "heroku_bc49f21d14a9948";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
