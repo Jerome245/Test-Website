@@ -28,7 +28,7 @@ echo $passkey;
 $sql1 = "SELECT * FROM applicantlist WHERE Passkey = `$passkey`";
 $result1 = $conn->query($sql1);
 // If successfully queried
-if($result1){
+if($result1 === TRUE){
 
 	if($result1->num_rows == 1){
 		$sql = "UPDATE applicantlist SET Status='1' WHERE Passkey = '$passkey' ";
