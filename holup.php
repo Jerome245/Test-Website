@@ -6,7 +6,7 @@
 
 					$from = new SendGrid\Email(null, "test@example.com");
 					$subject = "Hello World from the SendGrid PHP Library!";
-					$to = new SendGrid\Email(null, $email);
+					$to = new SendGrid\Email(null, "jaaglugub@clc.pshs.edu.ph");
 					$content = new SendGrid\Content("text/plain", "Hello, Email!");
 					$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
