@@ -73,7 +73,7 @@
 					else{
 						$message.="Second Choice: None <br>";
 					}
-					$message .="<br> If you have time may you please assess my website through this survey<br>https://forms.gle/CovMikDmFT2nUtJe7";
+					$message .="<br> If you have time may you please assess my website through this survey<br>https://docs.google.com/forms/d/e/1FAIpQLSf1GPoLvYL-NhHWVKuJZCLXp2PvH_4DhkTTy2wSd1udoTwNUQ/viewform?usp=sf_link";
 					$emailsent->addContent("text/html", $message."</p>");
 
 					$sendgrid = new \SendGrid('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');
